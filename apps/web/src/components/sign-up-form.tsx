@@ -16,7 +16,7 @@ export default function SignUpForm({
 	const navigate = useNavigate({
 		from: "/",
 	});
-	const { isPending } = authClient.useSession();
+	const { isPending, refetch } = authClient.useSession();
 
 	const form = useForm({
 		defaultValues: {
@@ -32,7 +32,8 @@ export default function SignUpForm({
 					name: value.name,
 				},
 				{
-					onSuccess: () => {
+					onSuccess: async () => {
+						await refetch();
 						navigate({
 							to: "/dashboard",
 						});

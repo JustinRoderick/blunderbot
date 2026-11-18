@@ -14,5 +14,10 @@
     "db:push": "bun run --filter server db:push",
     "db:studio": "bun run --filter server db:studio"
   },
-  "packageManager": "bun@1.2.10"
+  "packageManager": "bun@1.2.10",
+  "overrides": {
+    "browserslist": "^4.28.7",
+    "defu": "^6.1.5",
+    "ws": "^8.21.0"
+  }
 }

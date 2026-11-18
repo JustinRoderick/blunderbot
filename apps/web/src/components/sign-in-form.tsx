@@ -16,7 +16,7 @@ export default function SignInForm({
 	const navigate = useNavigate({
 		from: "/",
 	});
-	const { isPending } = authClient.useSession();
+	const { isPending, refetch } = authClient.useSession();
 
 	const form = useForm({
 		defaultValues: {
@@ -30,7 +30,8 @@ export default function SignInForm({
 					password: value.password,
 				},
 				{
-					onSuccess: () => {
+					onSuccess: async () => {
+						await refetch();
 						navigate({
 							to: "/dashboard",
 						});

@@ -49,7 +49,7 @@ const trpc = createTRPCOptionsProxy({
 });
 
 
-export const createRouter = () => {
+export const getRouter = () => {
   const router = createTanstackRouter({
     routeTree,
     scrollRestoration: true,
@@ -72,6 +72,6 @@ export const createRouter = () => {
 // Register the router instance for type safety
 declare module "@tanstack/react-router" {
   interface Register {
-    router: ReturnType<typeof createRouter>;
+    router: ReturnType<typeof getRouter>;
   }
 }
